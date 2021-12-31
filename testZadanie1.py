@@ -29,10 +29,13 @@ class Zadanie1bezUzyciaAtrap(unittest.TestCase):
     def test_info_attribute_good_type(self):
         self.assertEqual(type(self.jsonKlasa.jsonObjekt['info']),dict)
 
+from unittest.mock import Mock
 class Zadanie1zUzyciemAtrapy(unittest.TestCase):
+
     def setUp(self):
         import json
         with open('atrapa.json') as json_file:
+            self.jsonObjekt=Mock()
             self.jsonObjekt=json.load(json_file)
     def test_json_object_is_existing(self):
         self.assertEqual(type(self.jsonObjekt),dict)
